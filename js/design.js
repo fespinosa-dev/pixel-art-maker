@@ -15,9 +15,9 @@ $(function() {
   }
 
   function cellClickedListener(event) {
-      let cell = event.currentTarget;
-      let colorPicked = $("input[name=colorPicker]").val();
-      cell.style.backgroundColor = colorPicked;
+    let cell = event.currentTarget;
+    let colorPicked = $("input[name=colorPicker]").val();
+    cell.style.backgroundColor = colorPicked;
   }
 
   makeGrid();
