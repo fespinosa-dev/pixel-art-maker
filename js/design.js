@@ -1,10 +1,24 @@
-$(function (){
+$(function() {
 
-var canvas = $("#canvas")[0];
-var context = canvas.getContext("2d");
-context.beginPath();
-context.moveTo(0,0);
-context.lineTo(300,0);
-context.moveTo(0,30);
-context.lineTo(300,30);
+  function makeGrid() {
+    let grid = $("#grid");
+    // let gHeight = $("input[name=gHeight]").val();
+    // let gWidth = $("input[name=gWidth]").val();
+    let gHeight = 20;
+    let gWidth = 20;
+
+    for (var i = 0; i < gHeight; i++) {
+      var row = $("<tr></tr>");
+      for (var j = 0; j < gWidth; j++) {
+        let cell = $("<td>cell</td>");
+        row.append(cell);
+      }
+      grid.append(row);
+    }
+
+
+  }
+
+  makeGrid();
+
 });
