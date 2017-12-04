@@ -15,7 +15,7 @@ h1 {
 
 #grid {
   margin: auto;
-  cursor: url('pencil.png') 4 12, auto;
+  cursor: url(../img/hand.png) 2 2, auto;
 }
 
 .cell {
