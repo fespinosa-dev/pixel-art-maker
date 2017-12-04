@@ -1,15 +1,22 @@
-body{
+body {
   text-align: center;
 }
-.page-wrap{
+
+.page-wrap {
   width: 800px;
   margin: 0 auto;
 }
 
-#grid{
+h1 {
+  font-family: 'Monoton', cursive;
+  font-weight: normal;
+  font-size: 60px;
+}
+
+#grid {
   margin: auto;
 }
 
-.cell{
+.cell {
   border: solid 1px black;
 }
