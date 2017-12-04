@@ -18,5 +18,12 @@ h1 {
 }
 
 .cell {
+  width: 16px;
+  height: 16px;
+  border: solid 1px black;
+
+}
+
+tr{
   border: solid 1px black;
 }
