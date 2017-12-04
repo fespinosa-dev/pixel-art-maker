@@ -10,7 +10,7 @@ $(function() {
     for (var i = 0; i < gHeight; i++) {
       var row = $("<tr></tr>");
       for (var j = 0; j < gWidth; j++) {
-        let cell = $("<td>cell</td>");
+        let cell = $("<td>(*)</td>").addClass("cell");
         row.append(cell);
       }
       grid.append(row);
