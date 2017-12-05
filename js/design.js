@@ -1,4 +1,36 @@
 $(function() {
+
+  $("button[name=submit]").click(doSubmit);
+
+  function doSubmit() {
+    if (gridExits() && gridSizeChanged()) {
+        resetGrid();
+    }
+    if (!gridExits()) {
+      makeGrid();
+    }
+  }
+
+  function gridExits() {
+    return $("#grid").length;
+  }
+
+  function gridSizeChanged() {
+    return $("#grid").length != gridSize();
+  }
+
+  function gridSize() {
+    let columnCount = $("#grid-height").val();
+    let rowCount = $("#grid-width").val();
+    let size = columnCount * rowCount;
+    return size;
+  }
+
+  function resetGrid(){
+    $("#grid").remove();
+    makeGrid();
+  }
+
   function makeGrid() {
     let grid = $("<table cellpadding='0' cellspacing='0' id='grid'></table>");
     let columnCount = $("#grid-height").val();
@@ -20,43 +52,5 @@ $(function() {
     cell.style.backgroundColor = colorPicked;
   }
 
-  function clearGrid() {
-    $(".cell").each(function(index, element) {
-      $(element)[0].removeAttribute("style");
-    });
-  }
 
-  function doSubmit() {
-    if ($("#grid").length) {
-      if (areColoredSquares()) {
-        clearGrid();
-      }
-      if (gridSize() != $(".cell").length) {
-        $("#grid").remove();
-        makeGrid();
-      }
-    } else {
-      makeGrid();
-    }
-
-  }
-
-  function areColoredSquares() {
-    let cells = $(".cell").toArray();
-    for (var position in cells) {
-      if (cells[position].hasAttribute("style")) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  function gridSize() {
-    let columnCount = $("#grid-height").val();
-    let rowCount = $("#grid-width").val();
-    let size = columnCount * rowCount;
-    return size;
-  }
-
-  $("button[name=submit]").click(doSubmit);
 });
