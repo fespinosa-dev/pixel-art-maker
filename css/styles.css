@@ -1,28 +1,40 @@
 body {
-	text-align: center;
+  text-align: center;
 }
+
 .page-wrap {
-	width: 800px;
-	margin: 0 auto;
+  width: 800px;
+  margin: 0 auto;
 }
+
 h1 {
-	font-family: 'Monoton', cursive;
-	font-weight: normal;
-	font-size: 60px;
+  font-family: 'Monoton', cursive;
+  font-weight: normal;
+  font-size: 60px;
 }
+
+.jscolor {
+  width: 60px;
+  height: 20px;
+  border-radius: 5px;
+}
+
 #grid-width,
 #grid-height {
-	width: 50px;
+  width: 50px;
 }
+
 #grid {
-	margin: auto;
-	cursor: url(../img/hand.png) 2 2, auto;
+  margin: auto;
+  cursor: url(../img/hand.png) 2 2, auto;
 }
+
 .cell {
-	width: 16px;
-	height: 16px;
-	border: solid 1px black;
+  width: 16px;
+  height: 16px;
+  border: solid 1px black;
 }
+
 .column {
-	border: solid 1px black;
+  border: solid 1px black;
 }

@@ -1,10 +1,10 @@
 $(function() {
 
-  $("button[name=submit]").click(doSubmit);
+  $("#submit").click(doSubmit);
 
   function doSubmit() {
     if (gridExits() && gridSizeChanged()) {
-        resetGrid();
+      resetGrid();
     }
     if (!gridExits()) {
       makeGrid();
@@ -26,7 +26,7 @@ $(function() {
     return size;
   }
 
-  function resetGrid(){
+  function resetGrid() {
     $("#grid").remove();
     makeGrid();
   }
@@ -48,9 +48,14 @@ $(function() {
 
   function cellClickedListener(event) {
     let cell = event.currentTarget;
-    let colorPicked = $("input[name=colorPicker]").val();
-    cell.style.backgroundColor = colorPicked;
+    cell.style.backgroundColor = getPickedColor();
   }
 
+  function getPickedColor() {
+    let colorPicker = document.querySelector(".jscolor");
+    let bckColor = colorPicker.getAttribute("style").split(";")[1];
+    let color = bckColor.substring(bckColor.indexOf("rgb"), bckColor.length);
+    return color;
+  }
 
 });
