@@ -1,15 +1,13 @@
 $(function() {
-  $("#submit").click(doSubmit);
-
-  function doSubmit() {
+  document.querySelector("form").addEventListener("submit", function(e) {
+     e.preventDefault();
     if (gridExits() && gridSizeChanged()) {
       resetGrid();
     }
     if (!gridExits()) {
       makeGrid();
     }
-  }
-
+  });
   /**
    * @description Checks if the grid already exits or not
    * @returns {boolean} true or false
@@ -38,16 +36,16 @@ $(function() {
   }
 
   /**
-  * @description Deletes the grid and creates a new one
-  */
+   * @description Deletes the grid and creates a new one
+   */
   function resetGrid() {
     $("#grid").remove();
     makeGrid();
   }
 
   /**
-  * @description Creates a grid using the inputs values
-  */
+   * @description Creates a grid using the inputs values
+   */
   function makeGrid() {
     let grid = $("<table cellpadding='0' cellspacing='0' id='grid'></table>");
     let columnCount = $("#grid-height").val();
@@ -60,18 +58,21 @@ $(function() {
       }
       grid.append(row);
     }
-    $(".page-wrap").append(grid);
+    $("form").append(grid);
   }
 
+  /**
+   * @description assigns the choosen color to the clicked cell
+   */
   function cellClickedListener(event) {
     let cell = event.currentTarget;
     cell.style.backgroundColor = getPickedColor();
   }
 
   /**
-  * @description gets the selected color
-  * @returns picked color
-  */
+   * @description gets the selected color
+   * @returns {string} picked color
+   */
   function getPickedColor() {
     let colorPicker = document.querySelector(".jscolor");
     let bckColor = colorPicker.getAttribute("style").split(";")[1];
